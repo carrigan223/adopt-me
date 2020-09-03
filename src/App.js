@@ -1,18 +1,6 @@
-// your code is going to go here
-
-/*
-  we our passing props from our parent App to the child Pet,
-  we are destructuring those props and passing them down to be accesed 
-  at our child level
-*/
-
-const Pet = ({ name, animal, breed }) => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, name),
-    React.createElement("h2", {}, animal),
-    React.createElement("h3", {}, breed),
-  ]);
-};
+import React from "react";
+import { render } from "react-dom"; //curly braces to import a specified module  as opposed to whole module
+import  Pet  from "./Pet";
 
 //A component in react is something that returns markup
 
@@ -50,4 +38,4 @@ const App = () => {
 
 //start back at video passing in props
 
-ReactDOM.render(React.createElement(App), document.getElementById("root"));
+render(React.createElement(App), document.getElementById("root"));
