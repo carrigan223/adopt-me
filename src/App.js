@@ -6,7 +6,7 @@
   at our child level
 */
 
-const Pet = ({ name, animal, breed}) => {
+const Pet = ({ name, animal, breed }) => {
   return React.createElement("div", {}, [
     React.createElement("h1", {}, name),
     React.createElement("h2", {}, animal),
@@ -30,9 +30,21 @@ const Pet = ({ name, animal, breed}) => {
 const App = () => {
   return React.createElement("div", {}, [
     React.createElement("h1", {}, "Adopt Me!"),
-    React.createElement(Pet, { name: "Nacho", animal: "Dog", breed: "Mutt" }),
-    React.createElement(Pet, { name: "Hector", animal: "Dog", breed: "Bulldog" }),
-    React.createElement(Pet, { name: "Sgt. Peppers", animal: "Cat", breed: "Mixed" }),
+    React.createElement(Pet, {
+      name: "Nacho",
+      animal: "Dog",
+      breed: "Mutt",
+    }),
+    React.createElement(Pet, {
+      name: "Hector",
+      animal: "Dog",
+      breed: "Bulldog",
+    }),
+    React.createElement(Pet, {
+      name: "Sgt. Peppers",
+      animal: "Cat",
+      breed: "Mixed",
+    }),
   ]);
 };
 
