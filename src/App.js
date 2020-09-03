@@ -1,10 +1,16 @@
 // your code is going to go here
 
-const Pet = () => {
+/*
+  we our passing props from our parent App to the child Pet,
+  we are destructuring those props and passing them down to be accesed 
+  at our child level
+*/
+
+const Pet = ({ name, animal, breed}) => {
   return React.createElement("div", {}, [
-    React.createElement("h1", {}, "Nacho"),
-    React.createElement("h2", {}, "Dog"),
-    React.createElement("h3", {}, "Mutt"),
+    React.createElement("h1", {}, name),
+    React.createElement("h2", {}, animal),
+    React.createElement("h3", {}, breed),
   ]);
 };
 
@@ -24,9 +30,9 @@ const Pet = () => {
 const App = () => {
   return React.createElement("div", {}, [
     React.createElement("h1", {}, "Adopt Me!"),
-    React.createElement(Pet),
-    React.createElement(Pet),
-    React.createElement(Pet),
+    React.createElement(Pet, { name: "Nacho", animal: "Dog", breed: "Mutt" }),
+    React.createElement(Pet, { name: "Hector", animal: "Dog", breed: "Bulldog" }),
+    React.createElement(Pet, { name: "Sgt. Peppers", animal: "Cat", breed: "Mixed" }),
   ]);
 };
 
