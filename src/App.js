@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom"; //curly braces to import a specified module  as opposed to whole module
-import  Pet  from "./Pet";
+import Pet from "./Pet";
 
 //A component in react is something that returns markup
 
@@ -16,26 +16,34 @@ import  Pet  from "./Pet";
       
       */
 const App = () => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, "Adopt Me!"),
-    React.createElement(Pet, {
-      name: "Nacho",
-      animal: "Dog",
-      breed: "Mutt",
-    }),
-    React.createElement(Pet, {
-      name: "Hector",
-      animal: "Dog",
-      breed: "Bulldog",
-    }),
-    React.createElement(Pet, {
-      name: "Sgt. Peppers",
-      animal: "Cat",
-      breed: "Mixed",
-    }),
-  ]);
+  //   return React.createElement("div", {}, [
+  //     React.createElement("h1", {}, "Adopt Me!"),
+  //     React.createElement(Pet, {
+  //       name: "Nacho",
+  //       animal: "Dog",
+  //       breed: "Mutt",
+  //     }),
+  //     React.createElement(Pet, {
+  //       name: "Hector",
+  //       animal: "Dog",
+  //       breed: "Bulldog",
+  //     }),
+  //     React.createElement(Pet, {
+  //       name: "Sgt. Peppers",
+  //       animal: "Cat",
+  //       breed: "Mixed",
+  //     }),
+  //   ]);
+  // };
+  //the above code is the pure JS of the JSX below
+
+  return (
+    <div>
+      <h1 id="something-inportant">Adopt Me!</h1>
+      <Pet name="Nacho" animal="Dog" breed="Mutt" />
+      <Pet name="Hector" animal="Dog" breed="Bulldog" />
+      <Pet name="Sgt. Peppers" animal="Cat" breed="Mixed" />
+    </div>
+  );
 };
-
-//start back at video passing in props
-
-render(React.createElement(App), document.getElementById("root"));
+render(<App />, document.getElementById("root"));//rendering the main component App to the root element of our html document
