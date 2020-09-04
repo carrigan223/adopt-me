@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom"; //curly braces to import a specified module  as opposed to whole module
-import Pet from "./Pet";
+import SearchParams from "./SearchParams";
 
 //A component in react is something that returns markup
 
@@ -40,9 +40,7 @@ const App = () => {
   return (
     <div>
       <h1 id="something-inportant">Adopt Me!</h1>
-      <Pet name="Nacho" animal="Dog" breed="Mutt" />
-      <Pet name="Hector" animal="Dog" breed="Bulldog" />
-      <Pet name="Sgt. Peppers" animal="Cat" breed="Mixed" />
+      <SearchParams />
     </div>
   );
 };
