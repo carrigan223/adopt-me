@@ -2,14 +2,14 @@ import React from "react";
 import pet from "@frontendmasters/pet";
 
 class Details extends React.Component {
-  constructor(props) {
-    super(props);
+  //   constructor(props) {
+  //     super(props);
 
-    this.state = {
-      loading: true
-    };
-  }
-
+  //     this.state = {
+  //       loading: true
+  //     };
+  //   }
+  state = { loading: true };
   componentDidMount() {
     pet.animal(this.props.id).then(({ animal }) => {
       this.setState({
@@ -22,11 +22,27 @@ class Details extends React.Component {
         breed: animal.breeds.primary,
         loading: false
       });
-    });
+    }, console.error);
   }
 
   render() {
-    return;
+    if (this.state.loading) {
+      return <h1>Loading...</h1>;
+    }
+
+    const { animal, breed, location, description, name } = this.state;
+    
+
+    return (
+      <div className="details">
+        <div>
+          <h1>{name}</h1>
+          <h2> {`${animal} - ${breed} - ${location}`} </h2>
+          <button> Adopt {name}</button>
+          <p>{description}</p>
+        </div>
+      </div>
+    );
   }
 }
 
