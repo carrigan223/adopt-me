@@ -1,12 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom"; //curly braces to import a specified module  as opposed to whole module
+import { Router, Link } from "@reach/router";
 import SearchParams from "./SearchParams";
+import Details from "./Details";
 
 const App = () => {
   return (
     <div>
-      <h1 id="something-inportant">Adopt Me!</h1>
-      <SearchParams />
+      <header>
+        <Link to="/">Adopt Me!</Link>
+      </header>
+      <Router>
+        <SearchParams path="/" />
+        <Details path="/details/:id" />
+      </Router>
     </div>
   );
 };
