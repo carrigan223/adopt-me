@@ -15,6 +15,14 @@ class Carousel extends React.Component {
 
         return { photos };
     }
+    //this works because arrow functions maintain context throughout,
+    //always use arrow function for event listeners and functions your passing children
+    handleIndexClick = (event) => {
+        this.setState({
+            active: +event.target.dataset.index//the plus in front turns it to a number
+        })
+    }
+
 
     render () {
         const { photos, active } = this.state;
