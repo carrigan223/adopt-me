@@ -13,7 +13,7 @@ class Details extends React.Component {
   //   }
   state = { loading: true };
   componentDidMount() {
-    //throw new Error('lol'); uncomment this line to test error boundary
+    //throw new Error('lol'); //uncomment this line to test
     pet.animal(this.props.id).then(({ animal }) => {
       this.setState({
         name: animal.name,

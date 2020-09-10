@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "@reach/router";
+import { Link, Redirect } from "@reach/router";
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -9,12 +9,22 @@ class ErrorBoundary extends Component {
   componentDidCatch(error, info) {
     console.error("ErrorBoundary caught and error", error, info);
   }
+
+  componentDidUpdate() {
+    if (this.state.hasError) {
+      setTimeout(() => this.setState({ redirect: true }), 5000);
+    }
+  }
+
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
     if (this.state.hasError) {
       return (
         <h1>
           There was an error with this listing. <Link to="/">Click Here</Link>
-           to go back to the home page.
+          to go back to the home page.
         </h1>
       );
     }

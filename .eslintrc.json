@@ -14,6 +14,7 @@
     "react/hooks/exhaustive-deps": 1
   },//0 means off, 1 is warn, 2 is an error
   "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
