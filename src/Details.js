@@ -1,4 +1,5 @@
 import React from "react";
+import ThemeContext from "./ThemeContext";
 import pet from "@frontendmasters/pet";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
@@ -50,8 +51,17 @@ class Details extends React.Component {
         <div>
           <h1>{name}</h1>
           <h2> {`${animal} - ${breed} - ${location}`} </h2>
-          <button> Adopt {name}</button>
-          <p>{description}</p>
+          <ThemeContext.Consumer>
+            {([theme]) => (
+              <button
+                style={{ backgroundColor: theme }}
+                onClick={this.toggleModal}
+              >
+                Adopt {name}
+              </button>
+            )}
+          </ThemeContext.Consumer>
+          ;<p>{description}</p>
         </div>
       </div>
     );
@@ -61,10 +71,11 @@ class Details extends React.Component {
 export default function DetailsWithErrorBoundary(props) {
   return (
     <ErrorBoundary>
-      <Details {...props} />{/*spreading the props to pass them to details
+      <Details {...props} />
+      {/*spreading the props to pass them to details
         after passing through ErrorBoundary, dont use this method of passing props 
         often
         */}
     </ErrorBoundary>
-  )
-};
+  );
+}

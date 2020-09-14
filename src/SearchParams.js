@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import ThemeContext from "./ThemeContext";
 import pet, { ANIMALS } from "@frontendmasters/pet";
 import useDropdown from "./useDropdown";
 import Results from "./Results";
@@ -9,6 +10,7 @@ const SearchParams = () => {
   const [pets, setPets] = useState([]);
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
   const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
+  const [theme] = useContext(ThemeContext);//this is reading of the context
 
   async function requestPets() {
     const { animals } = await pet.animals({
@@ -51,7 +53,7 @@ const SearchParams = () => {
         </label>
         <AnimalDropdown />
         <BreedDropdown />
-        <button>Submit</button>
+        <button style={{backgroundColor: theme }}>Submit</button>
       </form>
       <Results pets={pets} />
     </div>

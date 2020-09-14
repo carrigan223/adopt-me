@@ -5,8 +5,9 @@ import { Router, Link } from "@reach/router";
 import SearchParams from "./SearchParams";
 import Details from "./Details";
 
+
 const App = () => {
-  const themeHook = useState("darkblue");
+  const themeHook = useState("teal");//changing the state of them hook at app level
   return (
     <React.StrictMode>
       <ThemeContext.Provider value={themeHook}>
