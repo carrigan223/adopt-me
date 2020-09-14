@@ -1,4 +1,5 @@
 import React from "react"; //anywhere you use jsx you must have react in scope
+import { Link } from '@reach/router';//using link to connect pet to reach router
 
 const Pet = (props) => {
   const { name, animal, breed, media, location, id } = props;
@@ -9,7 +10,7 @@ const Pet = (props) => {
   }
 
   return (
-    <a href={`/details/${id}`} className="pet">
+    <Link to={`/details/${id}`} className="pet">
       <div className="image-container">
         <img src={hero} alt={name} />
       </div>
@@ -17,7 +18,7 @@ const Pet = (props) => {
         <h1>{name}</h1>
         <h2>{`${animal} - ${breed} - ${location}`}</h2>
       </div>
-    </a>
+    </Link>
   );
 };
 export default Pet;

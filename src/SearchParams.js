@@ -10,7 +10,7 @@ const SearchParams = () => {
   const [pets, setPets] = useState([]);
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
   const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
-  const [theme] = useContext(ThemeContext);//this is reading of the context
+  const [theme, setTheme] = useContext(ThemeContext); //this is reading of the context
 
   async function requestPets() {
     const { animals } = await pet.animals({
@@ -53,7 +53,20 @@ const SearchParams = () => {
         </label>
         <AnimalDropdown />
         <BreedDropdown />
-        <button style={{backgroundColor: theme }}>Submit</button>
+        <label htmlFor="theme">
+          Theme
+          <select
+            value={theme}
+            onChange={e => setTheme(e.target.value)}
+            onBlur={e => setTheme(e.target.value)}
+          >
+            <option value="teal">Teal</option>
+            <option value="Peru">Peru</option>
+            <option value="darkRed">Dark Red</option>
+            <option value="mediumOrchid">Medium Orchid</option>
+          </select>
+        </label>
+        <button style={{ backgroundColor: theme }}>Submit</button>
       </form>
       <Results pets={pets} />
     </div>
