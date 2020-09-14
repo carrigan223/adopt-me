@@ -11,6 +11,15 @@ class Details extends React.Component {
   //       loading: true
   //     };
   //   }
+
+  /* 
+  
+    componentdidupdate is very similar to useeffect, it gets run every
+    time props or state changes. getderived state from error is called and
+    returns true which leads to component did update being called. 
+  
+  */
+
   state = { loading: true };
   componentDidMount() {
     //throw new Error('lol'); //uncomment this line to test
